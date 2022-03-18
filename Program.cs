@@ -20,13 +20,18 @@ namespace CMP1903M_Assessment_1_Base_Code
             string choice = "";
             string text = "";
 
+            // Player choice with exception handling 
             while (choice != "1" && choice != "2"){
                 Console.Write("Choose to enter text manually (1) or read from a text file (2): ");
                 choice = Console.ReadLine();
             }
+
+            // Manual input option
             if (choice == "1"){
                 text = i.manualTextInput();
             }
+
+            // Input from text file
             if (choice == "2"){
                 Console.Write("Enter the files name: ");
                 string file = Console.ReadLine();
