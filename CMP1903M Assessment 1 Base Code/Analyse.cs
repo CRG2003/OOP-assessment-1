@@ -8,11 +8,6 @@ namespace CMP1903M_Assessment_1_Base_Code
 {
     public class Analyse
     {
-        //Handles the analysis of text
-
-        //Method: analyseText
-        //Arguments: string
-        //Returns: list of integers
         //Calculates and returns an analysis of the text
         public List<int> analyseText(string input)
         {
@@ -25,17 +20,22 @@ namespace CMP1903M_Assessment_1_Base_Code
             //5. Number of lower case letters
 
             List<int> values = new List<int>();
+
             //Initialise all the values in the list to '0'
             for(int i = 0; i<5; i++)
             {
                 values.Add(0);
             }
 
+            // loops for every character in the text input
             foreach (char c in input){
+
+                // ends analysis when * is found
                 if (c.ToString() == "*"){
                     break;
                 }
 
+                // counts sentances (if no '.'s then it counts as 1 sentance)
                 bool noPoint = input.IndexOf(".") >= 0;
                 if (c.ToString() == "."){
                     values[0] += 1;
@@ -44,6 +44,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                     values[0] = 1;
                 }
 
+                // counts vowels and consonants
                 bool isVowel = "aeiouAEIOU".IndexOf(c) >= 0;
                 if (isVowel){
                     values[1] += 1;
@@ -52,6 +53,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                     values[2] += 1;
                 }
 
+                // counts upper and lower case letters
                 bool isUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".IndexOf(c) >= 0;
                 if (isUpper){
                     values[3] += 1;
