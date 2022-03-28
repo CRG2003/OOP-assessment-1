@@ -43,12 +43,11 @@ namespace CMP1903M_Assessment_1_Base_Code
             //Report the results of the analysis
             Report r = new Report();
             r.results(values);
-            //Dictionary<string, int> letters = a.individualLetters(text);
+
+            //Calculates the individual values and asks the user if they wish to view them
             r.ILetters(a.individualLetters(text));
 
 
-
-            //TO ADD: Get the frequency of individual letters?
 
            
         }

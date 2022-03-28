@@ -63,13 +63,18 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             return values;
         }
+        // Method that handles the individual letter counting 
         public Dictionary<string, int> individualLetters(string text){
             var letters = new Dictionary<string, int>();
             
+            // loops for every character in the text string 
             foreach (char c in text){
+                // If the letter is already in the list (lowercase only) the count is incrimented 
                 if (letters.ContainsKey(c.ToString().ToLower())){
                     letters[c.ToString().ToLower()]++;
                 }
+
+                // if the letter isnt in the dictionary it is added with initial value 1 (ignoring numbers and special characters)
                 else if ("0123456789.,'/;:()!*".IndexOf(c) <= 0 && c.ToString() != " "){
                     letters.Add(c.ToString().ToLower(), 1);
                 }
