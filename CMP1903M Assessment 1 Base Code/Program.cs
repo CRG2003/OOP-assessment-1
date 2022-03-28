@@ -41,12 +41,11 @@ namespace CMP1903M_Assessment_1_Base_Code
 
 
             //Report the results of the analysis
-            Console.WriteLine("");
-            Console.WriteLine("Number of sentances: " + values[0]);
-            Console.WriteLine("Number of vowels: " + values[1]);
-            Console.WriteLine("Number of consonants: " + values[2]);
-            Console.WriteLine("Number of upper case letters: " + values[3]);
-            Console.WriteLine("Number of lower case letters: " + values[4]);
+            Report r = new Report();
+            r.results(values);
+            //Dictionary<string, int> letters = a.individualLetters(text);
+            r.ILetters(a.individualLetters(text));
+
 
 
             //TO ADD: Get the frequency of individual letters?

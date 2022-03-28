@@ -30,40 +30,55 @@ namespace CMP1903M_Assessment_1_Base_Code
             // loops for every character in the text input
             foreach (char c in input){
 
+                bool dontCount = "0123456789.,'/;:()!".IndexOf(c) <= 0;
                 // ends analysis when * is found
                 if (c.ToString() == "*"){
                     break;
                 }
 
                 // counts sentances (if no '.'s then it counts as 1 sentance)
-                bool noPoint = input.IndexOf(".") >= 0;
                 if (c.ToString() == "."){
                     values[0] += 1;
                 }
-                if (noPoint == false){
+                if (input.IndexOf(".") <= 0){
                     values[0] = 1;
                 }
 
                 // counts vowels and consonants
-                bool isVowel = "aeiouAEIOU".IndexOf(c) >= 0;
-                if (isVowel){
+                if ("aeiouAEIOU".IndexOf(c) >= 0){
                     values[1] += 1;
                 }
-                else if (c.ToString() != " " && c.ToString() != "."){
+                else if (c.ToString() != " " && dontCount){
                     values[2] += 1;
                 }
 
                 // counts upper and lower case letters
-                bool isUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".IndexOf(c) >= 0;
-                if (isUpper){
+                if ("ABCDEFGHIJKLMNOPQRSTUVWXYZ".IndexOf(c) >= 0){
                     values[3] += 1;
                 }
-                else if (c.ToString() != " " && c.ToString() != "."){
+                else if (c.ToString() != " " && dontCount){
                     values[4] += 1;
                 }
             }
 
             return values;
+        }
+        public Dictionary<string, int> individualLetters(string text){
+            var letters = new Dictionary<string, int>();
+            
+            foreach (char c in text){
+                if (letters.ContainsKey(c.ToString().ToLower())){
+                    letters[c.ToString().ToLower()]++;
+                }
+                else if ("0123456789.,'/;:()!*".IndexOf(c) <= 0 && c.ToString() != " "){
+                    letters.Add(c.ToString().ToLower(), 1);
+                }
+                if (c.ToString() == "*")
+                {
+                    break;
+                }
+            }
+            return letters;
         }
     }
 }
