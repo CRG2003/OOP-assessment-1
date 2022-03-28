@@ -47,13 +47,11 @@ namespace CMP1903M_Assessment_1_Base_Code
             // foreach loop is used as the above code returns a list of files 
             foreach (var item in files){
                 using (var sr = new StreamReader(item.FullName)){
-                    if (File.Exists(item.FullName)){
-                        text = sr.ReadToEnd().ToString();
-                    }
+                    text = sr.ReadToEnd().ToString();
                 }
             }
 
-            // if the text is the default text (meaning no input) code is re-ran
+            // if the text is the default text (meaning no valid input) code is re-ran
             if (text == "nothing"){
                 Console.WriteLine("File does not exist");
                 Console.WriteLine("");
